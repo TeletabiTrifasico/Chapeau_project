@@ -8,12 +8,12 @@ namespace ChapeauModel
 {
     internal class Menu_item
     {
-        public int ItemId { get; set; }         //
-        public string Name { get; set; }        //
-        public string Category { get; set; }    //
-        public string Card { get; set; }        //
-        public int Stock { get; set; }          //
-        public float Price { get; set; }       //
+        public int ItemId { get; set; }         //Id for the items in the menu (Primary key)
+        public string Name { get; set; }        //Name for the item in the menu
+        public string Category { get; set; }    //Category for the item in the menu
+        public string Card { get; set; }        //Card for the item in the menu
+        public int Stock { get; set; }          //Stock amount for the item in the menu
+        public float Price { get; set; }        //Price of the item in the menu 
 
     }
 }

@@ -8,10 +8,10 @@ namespace ChapeauModel
 {
     internal class Employee
     {
-        private int EmployeeId { get; set; }        //
-        private string Username { get; set; }       //
-        private int Password { get; set; }          //
-        private string Role { get; set; }           //
+        private int EmployeeId { get; set; }        //Employee Id (Primary key)
+        private string Username { get; set; }       //Employee Username
+        private int Password { get; set; }          //Employee Password
+        private string Role { get; set; }           //Employee Role
 
     }
 }
