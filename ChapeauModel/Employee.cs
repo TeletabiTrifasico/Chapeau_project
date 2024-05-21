@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ChapeauModel
 {
-    internal class Employee
+    public class Employee
     {
-        private int EmployeeId { get; set; }        //Employee Id (Primary key)
-        private string Username { get; set; }       //Employee Username
-        private int Password { get; set; }          //Employee Password
-        private string Role { get; set; }           //Employee Role
+        public int EmployeeId { get; set; }        //Employee Id (Primary key)
+        public string Username { get; set; }       //Employee Username
+        public int Password { get; set; }          //Employee Password
+        public string Role { get; set; }           //Employee Role
 
     }
 }
