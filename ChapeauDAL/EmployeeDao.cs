@@ -68,7 +68,7 @@ namespace ChapeauDAL
         {
             CheckEmployeeValues(employee);
 
-            string query = "INSERT student(student_number, first_name, last_name, class, phone_number, roomID) VALUES (@student_number, @first_name, @last_name, @class, @phone_number, @roomID)";
+            string query = "INSERT employee(employeeId, userName, password, role) VALUES (@employeeId, @userName, @password, @role)";
 
             ExecuteEditQuery(query, EmployeeParameters(employee));
         }
