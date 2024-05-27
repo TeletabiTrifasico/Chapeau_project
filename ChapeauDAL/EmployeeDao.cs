@@ -23,7 +23,7 @@ namespace ChapeauDAL
                     EmployeeId = (int)dr["employeeId"],
                     Username = dr["name"].ToString(),
                     Password = (int)dr["password"],
-                    Role = dr["role"].ToString()
+                    EmployeeRole = Enum.TryParse(dr["role"].ToString(), true, out Role role) ? role : throw new ArgumentException($"Invalid role value: {dr["role"]}")
                 };
                 employees.Add(employee);
             }
@@ -36,7 +36,7 @@ namespace ChapeauDAL
                 new("@employeeId", SqlDbType.Int) {Value = employee.EmployeeId},
                 new("@userName", SqlDbType.VarChar) {Value = employee.Username},
                 new("@password", SqlDbType.VarChar) {Value = employee.Password},
-                new("@role", SqlDbType.VarChar) {Value = employee.Role},
+                new("@role", SqlDbType.VarChar) {Value = employee.EmployeeRole},
             };
 
             return parameters;
@@ -68,7 +68,7 @@ namespace ChapeauDAL
         {
             CheckEmployeeValues(employee);
 
-            string query = "INSERT employee(employeeId, userName, password, role) VALUES (@employeeId, @userName, @password, @role)";
+            string query = "INSERT employee(userName, password, role) VALUES (@userName, @password, @role)";
 
             ExecuteEditQuery(query, EmployeeParameters(employee));
         }
