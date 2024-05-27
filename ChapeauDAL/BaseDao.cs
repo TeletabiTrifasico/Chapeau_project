@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 
 namespace ChapeauDAL
 {
@@ -112,6 +113,18 @@ namespace ChapeauDAL
             }
 
             return dataTable;
+        }
+        protected bool IdExists(int id, string tableName, string columnName)
+        {
+            conn.Open();
+
+            string query = $"SELECT COUNT(*) FROM {tableName} WHERE {columnName} = @id";
+            SqlCommand command = new(query, conn);
+            command.Parameters.Add(new SqlParameter("@id", id));
+            int count = Convert.ToInt32(command.ExecuteScalar());
+
+            conn.Close();
+            return count > 0;
         }
     }
 }
