@@ -1,62 +1,35 @@
 ﻿using ChapeauModel;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace ChapeauDAL
 {
-    public class TableDao :BaseDao
+    public class TableDao : BaseDao
     {
-
-
-
-
-
-
-
-
-
-        private List<Employee> RadTables(DataTable dataTable)
+       
+        public List<Table> GetTables()
         {
-            List<Employee> employees = new List<Employee>();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                Employee employee = new Employee()
-                {
-                    EmployeeId = (int)dr["employeeId"],
-                    Username = dr["name"].ToString(),
-                    Password = (int)dr["password"],
-                    Role = dr["role"].ToString()
-                };
-                employees.Add(employee);
-            }
-            return employees;
+            string query = "SELECT tableId, tableNumber, tableStatus FROM[table]";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
 
         private List<Table> ReadTables(DataTable dataTable)
         {
-            List<Table> tables= new List<Table>();
+            List<Table> tables = new List<Table>();
             foreach (DataRow dr in dataTable.Rows)
             {
                 Table table = new Table()
                 {
-
-                }
-
-
-
-
-
-
+                    TableId = (int)dr["tableId"],
+                    TableNumber = (int)dr["tableNumber"],
+                    TableStatus = dr["tableStatus"].ToString()
+                };
+                tables.Add(table);
             }
+            return tables;
         }
-
-
-
-
     }
+
 }
+
