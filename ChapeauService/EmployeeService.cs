@@ -27,5 +27,22 @@ namespace ChapeauService
             return employees;
         }
 
+        // Delete students from the database
+        public void DeleteStudent(Employee employee)
+        {
+            employeeDao.DeleteEmployee(employee);
+        }
+
+        // Add students from the database
+        public void AddStudent(Employee employee)
+        {
+            employeeDao.AddEmployee(employee);
+        }
+
+        // Update students from the database
+        public void UpdateStudent(Employee employee)
+        {
+            employeeDao.UpdateEmployee(employee);
+        }
     }
 }
