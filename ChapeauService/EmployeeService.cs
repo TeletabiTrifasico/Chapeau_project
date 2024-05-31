@@ -23,7 +23,7 @@ namespace ChapeauService
         // get GetEmployees method from EmployeeDao and assign it a list.
         public List<Employee> GetEmployees()
         {
-            List<Employee> employees=employeeDao.GetEmployees();
+            List<Employee> employees=employeeDao.GetEmployee();
             return employees;
         }
 
