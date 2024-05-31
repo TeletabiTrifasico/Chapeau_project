@@ -8,10 +8,10 @@ namespace ChapeauModel
 {
     public class Employee
     {
-        public int EmployeeId { get; set; }        //Employee Id (Primary key)
-        public string Username { get; set; }       //Employee Username
-        public string Password { get; set; }          //Employee Password
-        public string Role { get; set; }           //Employee Role
+        public int EmployeeId { get; set; }                 //Employee Id (Primary key)
+        public string Username { get; set; }                //Employee Username
+        public int Password { get; set; }                   //Employee Password
+        public Role EmployeeRole { get; set; }              //Employee Role (enum)
 
     }
 }

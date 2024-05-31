@@ -59,8 +59,8 @@ namespace ChapeauDAL
                 Employee employee = new Employee()
                 {
                     EmployeeId = (int)dr["employeeId"],
-                    Username = dr["userName"].ToString(),
-                    Password = dr["password"].ToString(),
+                    Username = dr["name"].ToString(),
+                    Password = (int)dr["password"],
                     Role = dr["role"].ToString()
                 };
                 employees.Add(employee);
@@ -74,7 +74,7 @@ namespace ChapeauDAL
                 new("@employeeId", SqlDbType.Int) {Value = employee.EmployeeId},
                 new("@userName", SqlDbType.VarChar) {Value = employee.Username},
                 new("@password", SqlDbType.VarChar) {Value = employee.Password},
-                new("@role", SqlDbType.VarChar) {Value = employee.Role},
+                new("@role", SqlDbType.VarChar) {Value = employee.EmployeeRole},
             };
             return parameters;
         }
@@ -106,7 +106,7 @@ namespace ChapeauDAL
         {
             CheckEmployeeValues(employee);
 
-            string query = "INSERT student(student_number, first_name, last_name, class, phone_number, roomID) VALUES (@student_number, @first_name, @last_name, @class, @phone_number, @roomID)";
+            string query = "INSERT employee(userName, password, role) VALUES (@userName, @password, @role)";
 
             ExecuteEditQuery(query, EmployeeParameters(employee));
         }
