@@ -9,9 +9,9 @@ namespace ChapeauDAL
 {
     public class OrderDao 
     {
-        public List<Order>
-        {
-            string query = "SELECT Order.TableId,  "
-        }
+        // public List<Order>
+        // {
+        //     string query = "SELECT Order.TableId,  "
+        // }
     }
 }

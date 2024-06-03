@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChapeauModel
 {
-    internal class Menu_item
+    public class Menu_item
     {
         public int ItemId { get; set; }         //Id for the items in the menu (Primary key)
         public string Name { get; set; }        //Name for the item in the menu
