@@ -1,6 +1,6 @@
 ﻿namespace ChapeauUI._2
 {
-    partial class LoginForm
+    partial class Login
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             txtBoxUserName = new TextBox();
             txtBoxPassword = new TextBox();
             btnLogin = new Button();

@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ChapeauUI._2
 {
-    public partial class RestaurantOverview : Form
+    public partial class HomePage : Form
     {
-        public RestaurantOverview()
+        public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
