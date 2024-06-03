@@ -86,7 +86,7 @@ namespace ChapeauDAL
         }
 
         /* For Select Queries */
-        protected DataTable ExecuteSelectQuery(string query, Microsoft.Data.SqlClient.SqlParameter[] sqlParameters1, params SqlParameter[] sqlParameters)
+        protected DataTable ExecuteSelectQuery(string query, params SqlParameter[] sqlParameters)
         {
             SqlCommand command = new SqlCommand();
             DataTable dataTable;
