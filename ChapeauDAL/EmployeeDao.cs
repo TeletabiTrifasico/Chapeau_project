@@ -10,7 +10,7 @@ namespace ChapeauDAL
     public class EmployeeDao : BaseDao
     {
 
-        public Employee Authentication(Employee employee)//boolean yap
+        /*public Employee Authentication(Employee employee)//boolean yap
         {
             try
             {
@@ -38,7 +38,7 @@ namespace ChapeauDAL
                 Console.WriteLine("User Name or Password Is Wrong! " + ex.Message);
                 return null;
             }
-        }
+        }*/
    
 
 
@@ -60,8 +60,8 @@ namespace ChapeauDAL
                 {
                     EmployeeId = (int)dr["employeeId"],
                     Username = dr["name"].ToString(),
-                    Password = (int)dr["password"],
-                    Role = dr["role"].ToString()
+                    Password = dr["password"].ToString(),
+                    EmployeeRole = Enum.TryParse(dr["role"].ToString(), true, out Role role) ? role : throw new ArgumentException($"Invalid role value: {dr["role"]}")
                 };
                 employees.Add(employee);
             }
