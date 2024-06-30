@@ -14,6 +14,16 @@ namespace ChapeauModel
         public string Card { get; set; }        //Card for the item in the menu
         public int Stock { get; set; }          //Stock amount for the item in the menu
         public float Price { get; set; }        //Price of the item in the menu 
+        public MenuItem(){}
+        public MenuItem(int itemId, string name, string category, string card, int stock, float price)
+        {
+            ItemId = itemId;
+            Name = name;
+            Category = category;
+            Card = card;
+            Stock = stock;
+            Price = price;
+        }
 
     }
 }

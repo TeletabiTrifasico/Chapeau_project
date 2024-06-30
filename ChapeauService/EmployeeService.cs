@@ -19,12 +19,9 @@ namespace ChapeauService
         {
             employeeDao = new EmployeeDao();
         }
-
-        // get GetEmployees method from EmployeeDao and assign it a list.
         public List<Employee> GetEmployees()
         {
-            List<Employee> employees=employeeDao.GetEmployee();
-            return employees;
+            return employeeDao.GetAll();
         }
 
         // Delete students from the database

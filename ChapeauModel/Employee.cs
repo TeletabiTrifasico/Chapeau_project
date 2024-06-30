@@ -12,6 +12,13 @@ namespace ChapeauModel
         public string Username { get; set; }                //Employee Username
         public string Password { get; set; }                //Employee Password
         public Role EmployeeRole { get; set; }              //Employee Role (enum)
-
+        public Employee(){}
+        public Employee(int employeeId, string username, string password, Role employeeRole)
+        {
+            EmployeeId = employeeId;
+            Username = username;
+            Password = password;
+            EmployeeRole = employeeRole;
+        }
     }
 }

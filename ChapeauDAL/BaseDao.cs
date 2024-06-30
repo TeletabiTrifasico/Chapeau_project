@@ -6,7 +6,7 @@ using System.Data.Common;
 
 namespace ChapeauDAL
 {
-    public abstract class BaseDao
+    public abstract class BaseDao<T>
     {
         private SqlDataAdapter adapter;
         private SqlConnection conn;
@@ -126,5 +126,24 @@ namespace ChapeauDAL
             conn.Close();
             return count > 0;
         }
+        public List<T> GetAll()
+        {
+            SqlParameter[] sqlParameters = Array.Empty<SqlParameter>();
+            return ReadTables(ExecuteSelectQuery(GetAllQuery(), sqlParameters));
+        }
+        protected List<T> ReadTables(DataTable dataTable)
+        {
+            List<T> items = new();
+
+            foreach (DataRow reader in dataTable.Rows)
+            {
+                T item = ConvertItem(reader);
+                items.Add(item);
+            }
+
+            return items;
+        }
+        internal protected abstract T ConvertItem(DataRow reader);
+        private protected abstract string GetAllQuery();
     }
 }

@@ -9,8 +9,24 @@ using System.Data.SqlClient;
 
 namespace ChapeauDAL
 {
-    public class MenuItemDao : BaseDao 
+    public class MenuItemDao : BaseDao<MenuItem>
     {
+        internal protected override MenuItem ConvertItem(DataRow reader)
+        {
+            int ItemId = (int)reader["ItemId"];
+            string Name = (string)reader["name"];
+            string Category = (string)reader["category"];
+            string Card = (string)reader["card"];
+            int Stock = (int)reader["stock"];
+            float Price = (float)reader["price"];
+
+
+            return new MenuItem(ItemId, Name, Category, Card, Stock, Price);
+        }
+        private protected override string GetAllQuery()
+        {
+            return "SELECT ItemId, name, category, card, stock, price FROM [menuItem]";
+        }
         public List<MenuItem> GetMenu_Items()
         {
             string query = "SELECT ItemId, name, category, card, stock, price FROM [menuItem]";

@@ -7,65 +7,21 @@ using System.Text;
 
 namespace ChapeauDAL
 {
-    public class EmployeeDao : BaseDao
+    public class EmployeeDao : BaseDao<Employee>
     {
-
-        /*public Employee Authentication(Employee employee)//boolean yap
+        internal protected override Employee ConvertItem(DataRow reader)
         {
-            try
-            {
-                string query = "SELECT employeeId, userName, password, role  FROM [employee] WHERE userName = @userName AND password = @password";
-
-                SqlParameter[] sp = new SqlParameter[]
-                {
-                  new SqlParameter("@userName", employee.EmployeeId),
-                  //new SqlParameter("@password", SqlDbType.NVarChar) {Value = password}
-                };
-
-                DataTable dt = ExecuteSelectQuery(query, sp);
+            int EmployeeId = (int)reader["employeeId"];
+            string Username = (string)reader["name"];
+            string Password = (string)reader["password"];
+            Role EmployeeRole = (Role)reader["role"];
 
 
-                if (dt.Rows.Count > 0)
-                {
-                  
-
-
-
-                }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("User Name or Password Is Wrong! " + ex.Message);
-                return null;
-            }
-        }*/
-   
-
-
-
-        //sql query to get employee information.
-        public List<Employee> GetEmployee()
-        {
-            string query = "SELECT employeeId, userName, password, role  FROM [employee]";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return new Employee(EmployeeId, Username, Password, EmployeeRole);
         }
-
-        private List<Employee> ReadTables(DataTable dataTable)
+        private protected override string GetAllQuery()
         {
-            List<Employee> employees = new List<Employee>();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                Employee employee = new Employee()
-                {
-                    EmployeeId = (int)dr["employeeId"],
-                    Username = dr["name"].ToString(),
-                    Password = dr["password"].ToString(),
-                    EmployeeRole = Enum.TryParse(dr["role"].ToString(), true, out Role role) ? role : throw new ArgumentException($"Invalid role value: {dr["role"]}")
-                };
-                employees.Add(employee);
-            }
-            return employees;
+            return "SELECT employeeId, userName, password, role  FROM [employee]";
         }
         private SqlParameter[] EmployeeParameters(Employee employee)
         {
@@ -78,7 +34,6 @@ namespace ChapeauDAL
             };
             return parameters;
         }
-
         public void UpdateEmployee(Employee employee)
         {
             string query = "UPDATE employee SET userName = @userName, password = @password, role = @role WHERE employeeId = @employeeId";
