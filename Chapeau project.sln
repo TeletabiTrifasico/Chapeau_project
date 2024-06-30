@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChapeauModel", "ChapeauMode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChapeauService", "ChapeauService\ChapeauService.csproj", "{188A4112-9E86-4924-9326-C2B8677C1312}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChapeauUI", "ChapeauUI.2\ChapeauUI.csproj", "{5DA82450-42A0-4EC7-89DD-E55CBA3EFF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,11 @@ Global
 		{188A4112-9E86-4924-9326-C2B8677C1312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{188A4112-9E86-4924-9326-C2B8677C1312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{188A4112-9E86-4924-9326-C2B8677C1312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA82450-42A0-4EC7-89DD-E55CBA3EFF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA82450-42A0-4EC7-89DD-E55CBA3EFF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA82450-42A0-4EC7-89DD-E55CBA3EFF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA82450-42A0-4EC7-89DD-E55CBA3EFF72}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
