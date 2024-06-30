@@ -14,5 +14,20 @@ namespace ChapeauModel
         private int EmployeeId { get; set; }        //Employee ID (Foreign key from Employee)
         private string Command { get; set; }        //Command to add or remove an ingredient from an order
 
+        public Order(int orderId, int billNumber, int tableId, int employeeId, string command)
+        {
+            OrderId = orderId;
+            BillNumber = billNumber;
+            TableId = tableId;
+            EmployeeId = employeeId;
+            Command = command;
+
+            
+        }
     }
+
 }
+
+
+    
+
