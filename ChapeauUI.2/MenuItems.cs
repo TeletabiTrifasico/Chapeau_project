@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace ChapeauUI._2
 {
-    public partial class HomePage : Form
+    public partial class MenuItems : Form
     {
-        public HomePage()
+        public MenuItems()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenHomePage();
         }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void OpenHomePage()
         {
-
+            HomePage homePage = new();
+            homePage.Show();
+            this.Hide();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenStockPage();
         }
@@ -37,7 +37,7 @@ namespace ChapeauUI._2
             stock.Show();
             this.Hide();
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenEmployeePage();
         }
@@ -46,14 +46,6 @@ namespace ChapeauUI._2
             Employees employees = new();
             employees.Show();
             this.Hide();
-        }
-        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenEmployeePage();
-        }
-        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenStockPage();
         }
     }
 }
