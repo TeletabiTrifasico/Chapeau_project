@@ -12,9 +12,9 @@ namespace ChapeauDAL
         internal protected override Employee ConvertItem(DataRow reader)
         {
             int EmployeeId = (int)reader["employeeId"];
-            string Username = (string)reader["name"];
-            string Password = (string)reader["password"];
-            Role EmployeeRole = (Role)reader["role"];
+            string Username = (string)reader["userName"];
+            int Password = (int)reader["password"];
+            string EmployeeRole = (string)reader["role"];
 
 
             return new Employee(EmployeeId, Username, Password, EmployeeRole);

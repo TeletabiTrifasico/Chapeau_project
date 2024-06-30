@@ -74,6 +74,7 @@
             employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             employeesToolStripMenuItem.Size = new Size(95, 24);
             employeesToolStripMenuItem.Text = "Employees";
+            employeesToolStripMenuItem.Click += employeesToolStripMenuItem_Click;
             // 
             // orderToolStripMenuItem
             // 
@@ -90,10 +91,10 @@
             // listViewEmployees
             // 
             listViewEmployees.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader3, columnHeader4, columnHeader5 });
+            listViewEmployees.FullRowSelect = true;
             listViewEmployees.Location = new Point(12, 31);
-            listViewEmployees.MultiSelect = false;
             listViewEmployees.Name = "listViewEmployees";
-            listViewEmployees.Size = new Size(633, 407);
+            listViewEmployees.Size = new Size(616, 431);
             listViewEmployees.TabIndex = 1;
             listViewEmployees.UseCompatibleStateImageBehavior = false;
             listViewEmployees.View = View.Details;
@@ -115,10 +116,11 @@
             // columnHeader5
             // 
             columnHeader5.Text = "Role";
+            columnHeader5.Width = 100;
             // 
             // button1
             // 
-            button1.Location = new Point(664, 132);
+            button1.Location = new Point(654, 111);
             button1.Name = "button1";
             button1.Size = new Size(114, 43);
             button1.TabIndex = 9;
@@ -127,7 +129,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(664, 208);
+            button2.Location = new Point(654, 212);
             button2.Name = "button2";
             button2.Size = new Size(114, 43);
             button2.TabIndex = 10;
@@ -136,7 +138,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(664, 286);
+            button3.Location = new Point(654, 313);
             button3.Name = "button3";
             button3.Size = new Size(114, 43);
             button3.TabIndex = 11;
@@ -148,12 +150,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(790, 450);
+            ClientSize = new Size(790, 474);
+            Controls.Add(listViewEmployees);
             Controls.Add(button3);
+            Controls.Add(menuStrip1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listViewEmployees);
-            Controls.Add(menuStrip1);
             Name = "Employees";
             Text = "Employees";
             menuStrip1.ResumeLayout(false);

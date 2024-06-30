@@ -17,8 +17,9 @@ namespace ChapeauUI._2
         public Employees()
         {
             InitializeComponent();
+            ShowEmployees();
         }
-
+        
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenHomePage();
@@ -31,24 +32,25 @@ namespace ChapeauUI._2
             this.Hide();
         }
 
-        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        public void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenStockPage();
         }
 
-        private void OpenStockPage()
+        public void OpenStockPage()
         {
             Stock stock = new();
             stock.Show();
             this.Hide();
         }
 
-        private List<Employee> GetEmployees()
+        public List<Employee> GetEmployees()
         {
             EmployeeService studentService = new();
             return studentService.GetEmployees();
         }
-        private void DisplayEmployees(List<Employee> employees, string checkpanel)
+
+        public void DisplayEmployees(List<Employee> employees, string checkpanel)
         {
             listViewEmployees.Items.Clear();
 
@@ -56,24 +58,24 @@ namespace ChapeauUI._2
 
             foreach (Employee employee in employees)
             {
-                ListViewItem item = new();
-                item.SubItems.Add(employee.EmployeeId.ToString());
+                ListViewItem item = new(employee.EmployeeId.ToString());
                 item.SubItems.Add(employee.Username);
-                item.SubItems.Add(employee.Password);
-                item.SubItems.Add(employee.EmployeeRole.ToString());
+                item.SubItems.Add(employee.Password.ToString());
+                item.SubItems.Add(employee.EmployeeRole);
                 item.Tag = employee;
 
                 addItem(item);
             }
         }
-        private Action<ListViewItem> AddEmployee(string checkPanel)
+
+        public Action<ListViewItem> AddEmployee(string checkPanel)
         {
             Action<ListViewItem> addItem;
             addItem = item => listViewEmployees.Items.Add(item);
             return addItem;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             if (listViewEmployees.SelectedItems.Count != 0)
             {
@@ -84,7 +86,8 @@ namespace ChapeauUI._2
                 MessageBox.Show("Select a employee!");
             }
         }
-        private void DeleteEmployee()
+
+        public void DeleteEmployee()
         {
             ListViewItem selectedEmployees = listViewEmployees.SelectedItems[0];
 
@@ -99,12 +102,36 @@ namespace ChapeauUI._2
                 MessageBox.Show("Action canceled!");
             }
         }
-        private DeleteConfirmation CreateDeleteCheckForm(string message)
+
+        public DeleteConfirmation CreateDeleteCheckForm(string message)
         {
             DeleteConfirmation deleteCheckForm = new(message);
             deleteCheckForm.ShowDialog();
 
             return deleteCheckForm;
+        }
+
+        public void ShowEmployees()
+        {
+            try
+            {
+                List<Employee> employees = GetEmployees();
+                DisplayEmployees(employees, "employees");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the employees: " + e.Message);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
