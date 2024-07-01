@@ -16,10 +16,11 @@ namespace ChapeauUI._2
         {
             InitializeComponent();
         }
-
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenEmployeePage()
         {
-            OpenHomePage();
+            Employees employees = new();
+            employees.Show();
+            this.Hide();
         }
         private void OpenHomePage()
         {
@@ -27,33 +28,34 @@ namespace ChapeauUI._2
             homePage.Show();
             this.Hide();
         }
-        private void OpenEmployeePage()
+        private void OpenDrinksPage()
         {
-            Employees employees = new();
-            employees.Show();
+            Drinks drinks = new();
+            drinks.Show();
             this.Hide();
         }
+        private void OpenMenuItemsPage()
+        {
+            Food food = new();
+            food.Show();
+            this.Hide();
+        }
+
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenEmployeePage();
         }
 
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenHomePage();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenMenusPage();
+            OpenDrinksPage();
         }
-        private void OpenMenusPage()
-        {
-            Menus menus = new();
-            menus.Show();
-            this.Hide();
-        }
-        private void OpenMenuItemsPage()
-        {
-            MenuItems menuItems = new();
-            menuItems.Show();
-            this.Hide();
-        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             OpenMenuItemsPage();

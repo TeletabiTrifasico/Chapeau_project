@@ -9,19 +9,19 @@ using System.Data.SqlClient;
 
 namespace ChapeauDAL
 {
-    public class MenuItemDao : BaseDao<MenuItem>
+    public class DrinkDao : BaseDao<Drink>
     {
-        internal protected override MenuItem ConvertItem(DataRow reader)
+        internal protected override Drink ConvertItem(DataRow reader)
         {
             int ItemId = (int)reader["ItemId"];
             string Name = (string)reader["name"];
             string Category = (string)reader["category"];
             string Card = (string)reader["card"];
             int Stock = (int)reader["stock"];
-            float Price = Convert.ToSingle(reader["price"]);
+            float Price = (float)reader["price"];
 
 
-            return new MenuItem(ItemId, Name, Category, Card, Stock, Price);
+            return new Drink(ItemId, Name, Category, Card, Stock, Price);
         }
         private protected override string GetAllQuery()
         {
@@ -46,8 +46,8 @@ namespace ChapeauDAL
                         Name = dr["Name"].ToString(),
                         Category = dr["Category"].ToString(),
                         Card = dr["Card"].ToString(),
+                        Price = (float)dr["Price"],
                         Stock = (int)dr["Stock"],
-                        Price = Convert.ToSingle(dr["Price"]),
                     };
                     menuItems.Add(menuItem);
                 }
@@ -63,7 +63,7 @@ namespace ChapeauDAL
                 new("@category", SqlDbType.VarChar) {Value = menu_item.Category},
                 new("@card", SqlDbType.VarChar) {Value = menu_item.Card},
                 new("@stock", SqlDbType.Int) {Value = menu_item.Stock},
-                new("@price", SqlDbType.Float) {Value = (double)menu_item.Price},
+                new("@price", SqlDbType.Float) {Value = menu_item.Price},
             };
             return parameters;
         }

@@ -19,7 +19,7 @@ namespace ChapeauUI._2
             InitializeComponent();
             ShowEmployees();
         }
-        
+
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenHomePage();
@@ -93,9 +93,12 @@ namespace ChapeauUI._2
 
             if (CreateDeleteCheckForm("Are you sure you wish to remove this employee?").DeleteMessage())
             {
-                EmployeeService studentService = new();
-                studentService.DeleteEmployees((Employee)selectedEmployees.Tag);
+                EmployeeService employeeService = new();
+                employeeService.DeleteEmployees((Employee)selectedEmployees.Tag);
                 MessageBox.Show("Student deleted!");
+                Employees employees = new();
+                employees.Show();
+                this.Hide();
             }
             else
             {
@@ -107,7 +110,6 @@ namespace ChapeauUI._2
         {
             DeleteConfirmation deleteCheckForm = new(message);
             deleteCheckForm.ShowDialog();
-
             return deleteCheckForm;
         }
 
@@ -123,15 +125,45 @@ namespace ChapeauUI._2
                 MessageBox.Show("Something went wrong while loading the employees: " + e.Message);
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        private void OpenEmployeeAddForm()
+        {
+            AddEmployeeForm addEmployeeForm = new();
+            addEmployeeForm.ShowDialog();
+            Employees employees = new Employees();
+            employees.Show();
+            this.Close();
+        }
+
+        private void OpenUpdateEmployeeForm()
+        {
+            ListViewItem selectedEmployee = listViewEmployees.SelectedItems[0];
+
+            UpdateEmployeeForm studentUpdateForm = new((Employee)selectedEmployee.Tag);
+            studentUpdateForm.ShowDialog();
+            Employees employees = new Employees();
+            employees.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenEmployeeAddForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listViewEmployees.SelectedItems.Count != 0)
+            {
+                OpenUpdateEmployeeForm();
+            }
+            else
+            {
+                MessageBox.Show("Select a employee!");
+            }
         }
     }
 }

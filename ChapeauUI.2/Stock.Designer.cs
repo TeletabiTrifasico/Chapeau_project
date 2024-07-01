@@ -83,19 +83,19 @@
             // 
             // button1
             // 
-            button1.Location = new Point(93, 170);
+            button1.Location = new Point(116, 170);
             button1.Name = "button1";
-            button1.Size = new Size(204, 110);
+            button1.Size = new Size(208, 109);
             button1.TabIndex = 8;
-            button1.Text = "Menus";
+            button1.Text = "Drinks";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(448, 170);
+            button2.Location = new Point(462, 170);
             button2.Name = "button2";
-            button2.Size = new Size(204, 110);
+            button2.Size = new Size(208, 109);
             button2.TabIndex = 9;
             button2.Text = "Menu Items";
             button2.UseVisualStyleBackColor = true;

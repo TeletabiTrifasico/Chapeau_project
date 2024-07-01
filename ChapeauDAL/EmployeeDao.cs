@@ -45,7 +45,7 @@ namespace ChapeauDAL
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new("@student_number", SqlDbType.Int) {Value = employee.EmployeeId}
+                new("@employeeId", SqlDbType.Int) {Value = employee.EmployeeId}
             };
 
             ExecuteEditQuery(query, parameters);

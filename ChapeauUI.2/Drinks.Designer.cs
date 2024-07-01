@@ -34,6 +34,14 @@
             employeesToolStripMenuItem = new ToolStripMenuItem();
             orderToolStripMenuItem = new ToolStripMenuItem();
             paymentToolStripMenuItem = new ToolStripMenuItem();
+            listViewEmployees = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,7 +51,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { homeToolStripMenuItem, stockToolStripMenuItem, employeesToolStripMenuItem, orderToolStripMenuItem, paymentToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(797, 28);
             menuStrip1.TabIndex = 9;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -80,11 +88,72 @@
             paymentToolStripMenuItem.Size = new Size(79, 24);
             paymentToolStripMenuItem.Text = "Payment";
             // 
+            // listViewEmployees
+            // 
+            listViewEmployees.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader3, columnHeader4, columnHeader5 });
+            listViewEmployees.FullRowSelect = true;
+            listViewEmployees.Location = new Point(12, 31);
+            listViewEmployees.Name = "listViewEmployees";
+            listViewEmployees.Size = new Size(616, 431);
+            listViewEmployees.TabIndex = 12;
+            listViewEmployees.UseCompatibleStateImageBehavior = false;
+            listViewEmployees.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Id";
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Username";
+            columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Password";
+            columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Role";
+            columnHeader5.Width = 100;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(654, 313);
+            button3.Name = "button3";
+            button3.Size = new Size(114, 43);
+            button3.TabIndex = 15;
+            button3.Text = "Delete";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(654, 212);
+            button2.Name = "button2";
+            button2.Size = new Size(114, 43);
+            button2.TabIndex = 14;
+            button2.Text = "Update";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(654, 111);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 43);
+            button1.TabIndex = 13;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Drinks
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(797, 472);
+            Controls.Add(listViewEmployees);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(menuStrip1);
             Name = "Drinks";
             Text = "Drinks";
@@ -102,5 +171,13 @@
         private ToolStripMenuItem employeesToolStripMenuItem;
         private ToolStripMenuItem orderToolStripMenuItem;
         private ToolStripMenuItem paymentToolStripMenuItem;
+        private ListView listViewEmployees;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }
