@@ -42,7 +42,7 @@ namespace ChapeauUI._2
             {
                 throw new ArgumentException("Stock should be a valid integer!");
             }
-            if (!int.TryParse(list[5], out int Price))
+            if (!float.TryParse(list[5], out float Price))
             {
                 throw new ArgumentException("Price should be a valid integer!");
             }

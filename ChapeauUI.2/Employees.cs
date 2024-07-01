@@ -95,7 +95,7 @@ namespace ChapeauUI._2
             {
                 EmployeeService employeeService = new();
                 employeeService.DeleteEmployees((Employee)selectedEmployees.Tag);
-                MessageBox.Show("Student deleted!");
+                MessageBox.Show("Employee deleted!");
                 Employees employees = new();
                 employees.Show();
                 this.Hide();
